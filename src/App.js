@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import React, { Suspense } from 'react';
+import React, { lazy,Suspense } from 'react';
 import { BrowserRouter ,Route,Routes, useParams} from 'react-router-dom';
 
 import './App.css';
@@ -7,9 +7,11 @@ import styled from 'styled-components';
 import Header from './Components/Header';
 
 //import { render } from '@testing-library/react';
-import Products from './Components/Products';
-import Home from './Components/Home';
-import ProductDetails from './Components/ProductDetails';
+const Home = React.lazy(() => import("./Components/Home"));
+const Products = React.lazy(() => import("./Components/Products"));
+const ProductDetails = React.lazy(() => import("./Components/ProductDetails"));
+
+               
 function App()  {
   
   return (
@@ -17,6 +19,7 @@ function App()  {
 <Header></Header>
 <AppFrame className="App" >
 <BrowserRouter basename="/" >
+<Suspense fallback={<div>Loading ... </div>}>
 <Routes>
 
 <Route path="/" element={<Home />} />
@@ -26,6 +29,7 @@ function App()  {
 
 <Route exact render={() => <p>Page not found!</p>}></Route>
 </Routes>
+</Suspense>
 </BrowserRouter>
 </AppFrame>
 </>
