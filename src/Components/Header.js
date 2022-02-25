@@ -15,7 +15,7 @@ return(
 
 </ul>
 </HeaderFrame>
-)
+);
 }
 
 const HeaderFrame = styled.div`

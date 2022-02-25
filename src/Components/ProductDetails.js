@@ -1,10 +1,11 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import data from "../data/data.json";
 import Product from "./Product";
 
 export default function ProductDetails (props){
-const name=props.match.params.name;
+const {name}=useParams() //hedhi tal3et tetbadel
 const toRender=data.filter((product)=>product.name===name)[0];
 
 return(

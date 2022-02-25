@@ -14,10 +14,13 @@ display:flex;
   export default function Products(){
     //const[products, err]= useApi("products");
 
-
 return(
+
+              
     <div>
+      
     <ProductsWrapper>
+      
         {data.map((product,index) =>(<Product product={product} key={index}></Product>))}
         
     </ProductsWrapper>
