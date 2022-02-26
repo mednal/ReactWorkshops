@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import  data from "../data/data.json";
 import Product from "./Product";
-//import  useApi from "../Hooks/useApi"
+import  useApi from "../Hooks/useApi"
 import {Link} from "react-router-dom";
 
 
@@ -11,18 +11,21 @@ text-align:center;
 display:flex;
 `
 
-  export default function Products(){
-    //const[products, err]= useApi("products");
+export default function Products(){
+   const[products ,err]= useApi("products");
 
 return(
 
-              
+  
     <div>
       
     <ProductsWrapper>
-      
-        {data.map((product,index) =>(<Product product={product} key={index}></Product>))}
-        
+
+    { products && products.map((product,index) =>(<Product key={index} product={product}  />))}
+
+
+{/*         { products && data.map((product,index) =>(<Product product={product} key={index}></Product>))}
+ */}        
     </ProductsWrapper>
   
         

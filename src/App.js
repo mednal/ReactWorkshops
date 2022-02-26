@@ -5,6 +5,7 @@ import { BrowserRouter ,Route,Routes, useParams} from 'react-router-dom';
 import './App.css';
 import styled from 'styled-components';
 import Header from './Components/Header';
+import AddProduct from './Components/AddProduct';
 
 //import { render } from '@testing-library/react';
 const Home = React.lazy(() => import("./Components/Home"));
@@ -25,6 +26,7 @@ function App()  {
 <Route path="/" element={<Home />} />
 <Route path="/products" element={<Products  />} />
 <Route path="/ProductDetails/:name" element={<ProductDetails  />} />
+<Route path="/addproduct" element={<AddProduct  />} />
 
 
 <Route exact render={() => <p>Page not found!</p>}></Route>

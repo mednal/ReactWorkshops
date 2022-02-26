@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 export default function Header (){
-    
+  
 return(
 <HeaderFrame>
 <ul>
@@ -11,6 +11,9 @@ return(
   </li>
   <li>
 <a href="/products">Products</a>
+  </li>
+   <li>
+<a href="/addproduct">addproduct</a>
   </li>
 
 </ul>

@@ -87,7 +87,7 @@ export default function Product(props) {
     const [product,setproduct] = useState(props.product);
     const [like,setLike] = useState(0);
     var addLikes = () => {
-      setLike(like + 5)
+      setLike(like + 1)
     }
  /*    const  addLikes = () => {
         setLike({
@@ -108,7 +108,7 @@ export default function Product(props) {
           like >= 4 ?(
             <ProductFrameBest>
             <ProductImageWrapperBest>
-                <ProductImageBest src={product.img}/>
+                <ProductImageBest src={`http://localhost:3008/uploads/${product.image}`}/>
             </ProductImageWrapperBest>
             <ProductInfoWrapperBest> <span>
         <a href={"/ProductDetails/"+ product.name}
@@ -125,7 +125,7 @@ export default function Product(props) {
       <ProductFrame>
 
       <ProductImageWrapper>
-          <ProductImage src={product.img} />
+          <ProductImage src={`http://localhost:3008/uploads/${product.image}`}/>
       </ProductImageWrapper>
       <ProductInfoWrapper>
          <span>
