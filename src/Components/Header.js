@@ -12,9 +12,7 @@ return(
   <li>
 <a href="/products">Products</a>
   </li>
-   <li>
-<a href="/addproduct">addproduct</a>
-  </li>
+   
 
 </ul>
 </HeaderFrame>

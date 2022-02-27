@@ -1,4 +1,7 @@
 import React,{ useState} from "react";
+import { queryApi } from "../utils/queryApi";
+import  useApi  from "../Hooks/useApi";
+import styled from "styled-components";
 
 export default function AddProduct(){
 
@@ -11,30 +14,40 @@ const [product , setproduit] = useState({
         likes:"0"
         
     });
-
+  
     
-     const handleChange =(event)=> {
-        this.setState({value: event.target.value});
+     const handlenameChange =(event)=> {
+        setproduit({title: event.target.value});
       }
+       const handledescriptionChange =(event)=> {
+        setproduit({description: event.target.value});
+      }
+       const handlePriceChange =(event)=> {
+        setproduit({price: event.target.value});
+      } 
+       const handleImageChange =(event)=> {
+        setproduit({image: event.target.value});
+      }
+       
 
      const handleSubmit=(event)=> {
-        alert('A name was submitted: ' + this.state.value);
+        alert('A name was submitted: ' + product.value);
         event.preventDefault();
       }
-      return <form onSubmit={(e) => {handleSubmit(e)}}>
+      return <form onSubmit={(event) => {handleSubmit(event)}}>
 
       <div >
         <h1>ADD NEW PRODUCT</h1>  
         <label >title :</label>  
-        <input type="text" name="TITLE" required onChange={(e) => {handleChange(e)}} />
+        <input type="text" name="TITLE" required onChange={(event) => {handlenameChange(event)}} />
         
         <label >description :</label> 
-        <input type="text" name="DESCRIPTION"  required onChange={(e) => {handleChange(e)}}/>
-        <input type="text" name="PRICE" required onChange={(e) => {handleChange(e)}}/>
-        <input type="file" name="IMAGE" required onChange={(e) => {handleChange(e)}}/>
+        <input type="text" name="DESCRIPTION"  required onChange={(event) => {handlePriceChange(event)}}/>
+        <input type="text" name="PRICE" required onChange={(event) => {handledescriptionChange(event)}}/>
+        <input type="file" name="IMAGE" required onChange={(event) => {handleImageChange(event)}}/>
       
       
-      <input type="submit" value="Envoyer" />
+        <input type="submit" value="Envoyer" />
       </div>
       </form>;
 

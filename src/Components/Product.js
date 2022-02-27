@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 
 const ProductFrame = styled.div`
@@ -111,9 +111,9 @@ export default function Product(props) {
                 <ProductImageBest src={`http://localhost:3008/uploads/${product.image}`}/>
             </ProductImageWrapperBest>
             <ProductInfoWrapperBest> <span>
-        <a href={"/ProductDetails/"+ product.name}
->{product.name}</a>        </span></ProductInfoWrapperBest>
-            <ProductInfoWrapperBest>{product.price}</ProductInfoWrapperBest>
+        <a href={"/ProductDetails/"+ product.title}
+>{product.title}</a>        </span></ProductInfoWrapperBest>
+            <ProductInfoWrapperBest>{product.price} </ProductInfoWrapperBest>
             <ProductInfoWrapperBest>Likes: {like} </ProductInfoWrapperBest>
             <Button onClick={addLikes}>Like</Button>
             <UButton onClick={addLikes}>Update</UButton>
@@ -129,9 +129,10 @@ export default function Product(props) {
       </ProductImageWrapper>
       <ProductInfoWrapper>
          <span>
-        <a href={"/ProductDetails/"+product.name}
->{product.name}</a>        </span> </ProductInfoWrapper>
+        <a href={"/ProductDetails/"+product.title}
+>{product.title}</a>        </span> </ProductInfoWrapper>
       <ProductInfoWrapper>{product.price} </ProductInfoWrapper>
+   
       <ProductInfoWrapper>Likes: {like} </ProductInfoWrapper>
       <Button onClick={addLikes}>Like</Button>
       <UButton onClick={addLikes}>Update</UButton>
