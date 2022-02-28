@@ -9,46 +9,51 @@ export default function AddProduct(){
 const [product , setproduit] = useState({
         title:"",
         description:"",
-        image:"",
-        price:"",
-        likes:"0"
+        image:""
+
         
     });
   
     
-     const handlenameChange =(event)=> {
-        setproduit({title: event.target.value});
-      }
-       const handledescriptionChange =(event)=> {
-        setproduit({description: event.target.value});
-      }
-       const handlePriceChange =(event)=> {
-        setproduit({price: event.target.value});
-      } 
-       const handleImageChange =(event)=> {
-        setproduit({image: event.target.value});
-      }
        
+    const handletitleChange =(e)=>{
+      setproduit({...product,title: e.target.value});
+    }
+  const handlepriceChange =(e)=>{
+      setproduit({...product,price: e.target.value});
+    }
+  const handledescriptionChange =(e)=>{
+      setproduit({...product,description: e.target.value});
+    }
+    const handleImageChange= (e)=> {
+      setproduit({...product,image: e.target.files[0]});
+    }
 
      const handleSubmit=(event)=> {
-        alert('A name was submitted: ' + product.value);
-        event.preventDefault();
+      alert('A form was submitted with Title :"' + product.title+
+      '" ,description :"'+ product.description +'" and price :"' + product.price + '"');
+      event.preventDefault();
+    queryApi("product",product,"POST",true);
       }
-      return <form onSubmit={(event) => {handleSubmit(event)}}>
+      return  <form onSubmit={(e) => {handleSubmit(e)}}>
 
       <div >
         <h1>ADD NEW PRODUCT</h1>  
         <label >title :</label>  
-        <input type="text" name="TITLE" required onChange={(event) => {handlenameChange(event)}} />
-        
-        <label >description :</label> 
-        <input type="text" name="DESCRIPTION"  required onChange={(event) => {handlePriceChange(event)}}/>
-        <input type="text" name="PRICE" required onChange={(event) => {handledescriptionChange(event)}}/>
+        <input type="text" name="TITLE" required onChange={(event) => {handletitleChange(event)}} />
+{/*         
+        <label >Price :</label> 
+        <input type="text" name="Price"  required onChange={(event) => {handlePriceChange(event)}}/> */}
+        <label >description:</label>
+        <input type="text" name="description" required onChange={(event) => {handledescriptionChange(event)}}/>
+        <label >price:</label>
+        <input type="text" name="description" required onChange={(event) => {handlepriceChange(event)}}/>
         <input type="file" name="IMAGE" required onChange={(event) => {handleImageChange(event)}}/>
       
       
-        <input type="submit" value="Envoyer" />
+        <input type="submit" value="Envoyer"/>
       </div>
-      </form>;
+      </form>
+      
 
 }
